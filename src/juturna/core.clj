@@ -5,7 +5,7 @@
 
 (def default-inflation 1.03) 
 
-(def default-return 1.05) ;; Conservative 5% return
+(def default-return 0.02)
 
 (def default-investment-rate 0.12) ;; Investment rate of 12%
 
@@ -26,7 +26,8 @@
 (defn next-year-net-worth 
   [curr-net-worth]
 
-  (+ (annual-investment default-salary default-investment-rate)
+  (+ (* curr-net-worth default-investment-rate)
+     (annual-investment default-salary default-investment-rate)
      (annual-capital-gains curr-net-worth default-inflation default-return))
 )
 
