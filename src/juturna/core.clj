@@ -11,12 +11,10 @@
 
 (def default-salary 25000)
 
-(with-tests 
-  (defn annual-capital-gains 
-    [curr-net-worth annual-inflation annual-return]
+(defn annual-capital-gains 
+  [curr-net-worth annual-inflation annual-return]
 
-    (* curr-net-worth annual-inflation annual-return )
-  )
+  (* curr-net-worth annual-inflation annual-return )
 )
 
 (defn annual-investment
