@@ -1,7 +1,7 @@
 (ns juturna.core-test
   (:require [clojure.test :refer :all]
+            [midje.sweet :refer :all]
             [juturna.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(fact "default current age is set correctly"
+  default-current-age => 27)
