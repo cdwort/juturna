@@ -23,10 +23,10 @@
   (* salary investment-rate )
 )
 
-(defn next-year-net-worth 
+(defn next-year-net-worth
   [curr-net-worth]
 
-  (+ (* curr-net-worth default-investment-rate)
+  (+ (* curr-net-worth default-inflation)
      (annual-investment default-salary default-investment-rate)
      (annual-capital-gains curr-net-worth default-inflation default-return))
 )
@@ -39,7 +39,7 @@
 
   (loop [net-worth       curr-net-worth 
          years-remaining years-to-target]
-    (if (> years-remaining 0) 
+    (if (<= years-remaining 0) 
       net-worth
       (recur (next-year-net-worth net-worth) (dec years-remaining))))
 )
