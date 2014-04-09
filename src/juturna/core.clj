@@ -35,14 +35,13 @@
   "Determines the individual's net worth at the given age considering current age and net worth"
   [target-age curr-age curr-net-worth]
 
-  (def years-to-target (- target-age curr-age))
+  (let [years-to-target (- target-age curr-age)]
 
-  (loop [net-worth       curr-net-worth 
-         years-remaining years-to-target]
-    (if (<= years-remaining 0) 
-      net-worth
-      (recur (next-year-net-worth net-worth) (dec years-remaining))))
-)
+    (loop [net-worth       curr-net-worth
+           years-remaining years-to-target]
+      (if (<= years-remaining 0)
+        net-worth
+        (recur (next-year-net-worth net-worth) (dec years-remaining))))))
 
 (defn -main
   "I am documentation"
